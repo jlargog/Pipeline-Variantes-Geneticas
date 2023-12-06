@@ -1,4 +1,4 @@
-# Pipeline Llamado de Variantes
+# Pipeline Variantes Genéticas
 Tools and step-by-step for genome assembly
 
 Hola, se crea este repositorio en español con el fin de documentar una linea de trabajo para el ensamblaje de genomas en Humanos.
