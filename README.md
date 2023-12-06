@@ -94,6 +94,7 @@ Se sugiere aplicar el siguiente comando:
 #### Paso 2 Aplicar el Modelo Ajustado a las Puntuaciones de Calidad
 
 
+![image](https://github.com/jlargog/Pipeline-Variantes-Geneticas/assets/138719333/38aa0896-c99e-4a30-a796-386ebaee0e83)
 
 
 
