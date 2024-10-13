@@ -1,10 +1,10 @@
 # Preparación de Archivos para Análisis Genómicos
 
-En esta primera parte, debemos **alisar los archivos** que nos servirán para realizar todos nuestros análisis en este trabajo. Como se mencionó en la nota de este repositorio, se realizó la descarga de los recursos necesarios.
+En esta primera parte, debemos **alistar los archivos** que nos servirán para realizar todos nuestros análisis en este trabajo. Como se mencionó en la nota de este repositorio, se realizó la descarga de los recursos necesarios.
 
 ## Script de Descarga
 
-Para facilitar la descarga, se diseñó un script llamado `download_resources.sh`, que utiliza un bucle `for` para descargar múltiples archivos de datos genómicos desde una URL específica utilizando el comando `wget`. A continuación, se resumen las acciones realizadas por el script:
+Para facilitar la descarga, se diseñó un script llamado [`download_resources.sh`](download_resources.sh), que utiliza un bucle `for` para descargar múltiples archivos de datos genómicos desde una URL específica utilizando el comando `wget`. A continuación, se resumen las acciones realizadas por el script:
 
 ### Resumen de Acciones
 
