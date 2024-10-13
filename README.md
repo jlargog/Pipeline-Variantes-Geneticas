@@ -8,6 +8,14 @@ Antes de de todo, los comandos se ejecutaran mediante un entorno ANACONDA. Si de
 Developed: July 2021
 Reviewed: June 2023
 
+## Índice de capítulos
+
+1. [Capítulo 1: Alineamiento](alineamiento.md)
+
+
+
+
+
 Se realizan ajustes según las necesidades y se documenta lo siguiente:
 
 ## Control de Calidad
