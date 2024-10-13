@@ -9,7 +9,7 @@ Developed: July 2021
 Reviewed: June 2023
 
 ## Índice de capítulos
-[Capítulo 1: Preparativos iniciales]("/1. Preparativos iniciales/descargas.md")
+[Capítulo 1: Preparativos iniciales](/1_preparativos_iniciales/descargas.md)
 [Capítulo 2: Alineamiento](alineamiento.md)
 
 
