@@ -9,8 +9,8 @@ Developed: July 2021
 Reviewed: June 2023
 
 ## Índice de capítulos
-
-1. [Capítulo 1: Alineamiento](alineamiento.md)
+[Capítulo 1: Preparativos iniciales]("./1. Preparativos iniciales/descargas.md")
+[Capítulo 2: Alineamiento](alineamiento.md)
 
 
 
