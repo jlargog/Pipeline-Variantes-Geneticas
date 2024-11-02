@@ -13,7 +13,7 @@ Reviewed: June 2023
 
 [Capítulo 2: Alineamiento](/2_Alineamiento_genref/readme_alineamiento.md)
 
-[Capítulo 3: Preparación del archivo BAM](/2_Alineamiento_genref/readme_alineamiento.md)
+[Capítulo 3: Preparación del archivo BAM](/3_Preparacion_BAM/readme_preparacion_bam.md)
 
 
 
