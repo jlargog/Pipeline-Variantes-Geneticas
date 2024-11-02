@@ -14,15 +14,23 @@ Se ha desarrollado un script en Python, denominado [`read_group.py`](read_group.
 Acontinuación se relacionan algunos parametrso del script: 
 
 `bam_directory`: Ruta al directorio que contiene los archivos BAM originales.
+
 `gatk_path`: Ruta al ejecutable de GATK.
+
 `output_directory`: Ruta al directorio donde se guardarán los archivos BAM procesados con Read Groups.
+
 `java_options`: Opciones para la ejecución de Java, en este caso, se establece un límite de memoria máxima de 50 GB.
 
 **Opciones de Read Group:**
+
 `--RGID rgid`: Define el identificador único del Read Group, que se extrae del nombre del archivo BAM.
+
 `--RGLB 'mgi_library'`: Especifica la biblioteca de origen para las lecturas (en este caso, se ha utilizado un nombre genérico 'mgi_library'). Este campo puede ser útil para identificar la biblioteca utilizada durante la secuenciación.
+
 `--RGPL 'MGI'`: Indica la plataforma utilizada para la secuenciación, en este caso, 'MGI'.
+
 `--RGPU rgid`: Proporciona un identificador único para el flujo de datos o unidad de producción (puede ser el mismo que RGID).
+
 `--RGSM sample_id`: Especifica el identificador de la muestra (sample ID) que se extrae del nombre del archivo BAM.
 
 ## Sección 3.2: Ordenamiento del archivo BAM
