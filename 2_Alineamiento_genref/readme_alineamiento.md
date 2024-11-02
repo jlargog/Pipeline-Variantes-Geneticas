@@ -1,6 +1,6 @@
 # Alineamiento al Genoma de Referencia
 
-En esta sección se realizó el alineamiento al genoma de referencia y se desarrolló un script en Python que permite generar los diferentes archivos `.BAM`. El script se denomina [alignment.py](alignment.py) y está disponible en este repositorio para su visualización y descarga. Este script automatiza el proceso de alineación de secuencias FASTQ utilizando la herramienta **BWA** (Burrows-Wheeler Aligner) y convierte los archivos resultantes a formato BAM usando **Samtools**.
+En esta sección se realizó el alineamiento al genoma de referencia y se desarrolló un script en Python que permite generar los diferentes archivos `.BAM`. El script se denomina [`alignment.py`](alignment.py) y está disponible en este repositorio para su visualización y descarga. Este script automatiza el proceso de alineación de secuencias FASTQ utilizando la herramienta **BWA** (Burrows-Wheeler Aligner) y convierte los archivos resultantes a formato BAM usando **Samtools**.
 
 ## Detalles del Script
 
