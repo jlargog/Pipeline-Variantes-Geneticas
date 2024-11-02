@@ -11,7 +11,7 @@ Reviewed: June 2023
 ## Índice de capítulos
 [Capítulo 1: Preparativos iniciales](/1_preparativos_iniciales/descargas.md)
 
-[Capítulo 2: Alineamiento](/2_Alineamiento_genref/alineamiento.md)
+[Capítulo 2: Alineamiento](/2_Alineamiento_genref/readme_alineamiento.md)
 
 
 
