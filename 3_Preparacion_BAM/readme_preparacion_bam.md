@@ -38,15 +38,15 @@ Acontinuación se relacionan algunos parametrso del script:
 
 **Opciones de Read Group:**
 
-`--RGID`: 'rgid' Define el identificador único del Read Group, que se extrae del nombre del archivo BAM.
+`--RGID`: Define el identificador único del Read Group, que se extrae del nombre del archivo BAM.
 
-`--RGLB`: 'mgi_library' Especifica la biblioteca de origen para las lecturas (en este caso, se ha utilizado un nombre genérico 'mgi_library'). Este campo puede ser útil para identificar la biblioteca utilizada durante la secuenciación.
+`--RGLB`: Especifica la biblioteca de origen para las lecturas (en este caso, se ha utilizado un nombre genérico 'mgi_library'). Este campo puede ser útil para identificar la biblioteca utilizada durante la secuenciación.
 
-`--RGPL`: 'MGI' Indica la plataforma utilizada para la secuenciación, en este caso, 'MGI'.
+`--RGPL`: Indica la plataforma utilizada para la secuenciación, en este caso, 'MGI'.
 
 `--RGPU`: Proporciona un identificador único para el flujo de datos o unidad de producción (puede ser el mismo que RGID).
 
-`--RGSM`: 'sample_id' Especifica el identificador de la muestra (sample ID) que se extrae del nombre del archivo BAM.
+`--RGSM`: Especifica el identificador de la muestra (sample ID) que se extrae del nombre del archivo BAM.
 
 ## Sección 3.2: Ordenamiento del archivo BAM
 
