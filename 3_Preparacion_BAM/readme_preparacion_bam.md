@@ -12,7 +12,7 @@ Para mayor información dirijase a: [Read groups GATK](https://gatk.broadinstitu
 
 La tecnología MGI utiliza un encabezado un poco diferente al que se conoce comúnmente con Illumina:
 
-@<Flowcell-id><LaneNo><Column><Row><FieldofView></readNumber>
+`@<Flowcell-id><LaneNo><Column><Row><FieldofView></readNumber>`
 
 Esta respuesta fue dada por el usuario [GenoMax](https://www.seqanswers.com/forum/sequencing-technologies-companies/mgiseq-fka-complete-genomics/326115-g400-fastq-header-description).
 
