@@ -50,7 +50,20 @@ Acontinuación se relacionan algunos parametrso del script:
 
 ## Sección 3.2: Ordenamiento del archivo BAM
 
+El ordenamiento (o "sort") en los archivos BAM organiza las lecturas alineadas en función de las posiciones genómicas. Esto significa que todas las lecturas que se mapearon en una región específica del genoma estarán juntas en el archivo, ordenadas según su posición de inicio.
+
+### Automatización del Proceso
+
+Para automatizar el proceso de ordenamiento se diseño el script [`sort.py`](sort.py). El script recorre todos los archivos BAM en el directorio de entrada cuyo nombre empieza con "DCL_", los ordena según la coordenada genómica, y genera un archivo BAM ordenado para cada uno en el directorio de salida. Además, cada archivo generado se acompaña de un índice (.bai), necesario para realizar análisis eficientes en otros programas.
+
 ## Sección 3.3: Marcado de duplicados del archivo BAM
+
+El marcado de duplicados ayuda a identificar y etiquetar lecturas duplicadas que surgen comúnmente durante el proceso de secuenciación de alto rendimiento. Estas lecturas duplicadas pueden sesgar el análisis de variantes, por lo que es importante identificarlas antes de los análisis posteriores.
+
+### Automatización del Proceso
+
+Se diseño el script [`mark_duplicates.py`](mark_duplicates.py). El script recorre todos los archivos BAM ordenados en el directorio de entrada, y, para cada archivo, utiliza la herramienta `MarkDuplicates` de Picard para generar un archivo BAM con los duplicados marcados. Adicionalmente, genera un archivo de métricas que proporciona información detallada sobre la cantidad de duplicados detectados en cada muestra. Este proceso está optimizado para manejar archivos de gran tamaño, especificando parámetros como la memoria máxima y un directorio temporal para optimizar el rendimiento.
+
 
 ## Sección 3.4: Recalibración del archivo BAM
 
