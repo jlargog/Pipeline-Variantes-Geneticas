@@ -62,36 +62,38 @@ El marcado de duplicados ayuda a identificar y etiquetar lecturas duplicadas que
 
 ### Automatización del Proceso
 
-Se diseño el script [`mark_duplicates.py`](mark_duplicates.py). El script recorre todos los archivos BAM ordenados en el directorio de entrada, y, para cada archivo, utiliza la herramienta `MarkDuplicates` de Picard para generar un archivo BAM con los duplicados marcados. Adicionalmente, genera un archivo de métricas que proporciona información detallada sobre la cantidad de duplicados detectados en cada muestra. Este proceso está optimizado para manejar archivos de gran tamaño, especificando parámetros como la memoria máxima y un directorio temporal para optimizar el rendimiento.
+Se diseñó el script [`mark_duplicates.py`](mark_duplicates.py). Este script recorre todos los archivos BAM ordenados en el directorio de entrada y, para cada archivo, utiliza la herramienta `MarkDuplicates` de Picard para generar un archivo BAM con los duplicados marcados. Además, genera un archivo de métricas que proporciona información detallada sobre la cantidad de duplicados detectados en cada muestra. Este proceso está optimizado para manejar archivos de gran tamaño, especificando parámetros como la memoria máxima y un directorio temporal para mejorar el rendimiento.
 
-El script genero archivos ya marcados con sus duplicados y ademas generó archivos .txt con diferentes metricas que se van a analizar acontinuación. 
+El script genera archivos BAM con duplicados marcados y archivos `.txt` que contienen diversas métricas para cada muestra. Los archivos generados incluyen:
 
-4.9K May 31 20:07 marked_dup_metrics_DCL_003_E200015275_L01_41_424524.txt
-7.7K Jun  1 01:54 marked_dup_metrics_DCL_005_E200015275_L01_42_424525.txt
-6.4K Jun  1 12:01 marked_dup_metrics_DCL_008_E200015275_L01_43_424527.txt
-7.6K Jun  1 17:51 marked_dup_metrics_DCL_009_E200015275_L01_44_424528.txt
-4.3K Jun  1 22:19 marked_dup_metrics_DCL_012_E200015275_L01_45_424530.txt
-7.5K Jun  2 03:12 marked_dup_metrics_DCL_014_E200015275_L01_46_424531.txt
-8.3K Jun  2 10:03 marked_dup_metrics_DCL_015_E200015275_L01_47_424532.txt
-5.8K Jun  2 14:25 marked_dup_metrics_DCL_016_E200015275_L01_48_424533.txt
-5.9K Jun  2 18:59 marked_dup_metrics_DCL_020_E200015275_L01_57_424535.txt
-6.5K Jun  4 17:16 marked_dup_metrics_DCL_021_E200015275_L01_58_424536.txt
-4.6K Jun  1 06:35 marked_dup_metrics_DCL_023_E200015233_L01_65_424537.txt
-7.7K Jun  3 02:26 marked_dup_metrics_DCL_024_E200015233_L01_66_424538.txt
-5.3K Jun  3 07:26 marked_dup_metrics_DCL_026_E200015233_L01_67_424540.txt
-6.7K Jun  3 14:42 marked_dup_metrics_DCL_027_E200015233_L01_68_424541.txt
-5.0K Jun  4 22:09 marked_dup_metrics_DCL_042_E200015233_L01_69_424548.txt
-5.2K Jun  3 19:43 marked_dup_metrics_DCL_044_E200015233_L01_70_424549.txt
-5.5K Jun  4 01:48 marked_dup_metrics_DCL_047_E200015233_L01_71_424551.txt
-5.7K Jun  8 23:09 marked_dup_metrics_DCL_048_E200015233_L01_72_424552.txt
-4.9K Jun  4 09:07 marked_dup_metrics_DCL_055_E200015233_L01_73_424554.txt
-7.6K Jun  4 13:22 marked_dup_metrics_DCL_058_E200015233_L01_74_424555.txt
+- 4.9K May 31 20:07 marked_dup_metrics_DCL_003_E200015275_L01_41_424524.txt
+- 7.7K Jun  1 01:54 marked_dup_metrics_DCL_005_E200015275_L01_42_424525.txt
+- 6.4K Jun  1 12:01 marked_dup_metrics_DCL_008_E200015275_L01_43_424527.txt
+- 7.6K Jun  1 17:51 marked_dup_metrics_DCL_009_E200015275_L01_44_424528.txt
+- 4.3K Jun  1 22:19 marked_dup_metrics_DCL_012_E200015275_L01_45_424530.txt
+- 7.5K Jun  2 03:12 marked_dup_metrics_DCL_014_E200015275_L01_46_424531.txt
+- 8.3K Jun  2 10:03 marked_dup_metrics_DCL_015_E200015275_L01_47_424532.txt
+- 5.8K Jun  2 14:25 marked_dup_metrics_DCL_016_E200015275_L01_48_424533.txt
+- 5.9K Jun  2 18:59 marked_dup_metrics_DCL_020_E200015275_L01_57_424535.txt
+- 6.5K Jun  4 17:16 marked_dup_metrics_DCL_021_E200015275_L01_58_424536.txt
+- 4.6K Jun  1 06:35 marked_dup_metrics_DCL_023_E200015233_L01_65_424537.txt
+- 7.7K Jun  3 02:26 marked_dup_metrics_DCL_024_E200015233_L01_66_424538.txt
+- 5.3K Jun  3 07:26 marked_dup_metrics_DCL_026_E200015233_L01_67_424540.txt
+- 6.7K Jun  3 14:42 marked_dup_metrics_DCL_027_E200015233_L01_68_424541.txt
+- 5.0K Jun  4 22:09 marked_dup_metrics_DCL_042_E200015233_L01_69_424548.txt
+- 5.2K Jun  3 19:43 marked_dup_metrics_DCL_044_E200015233_L01_70_424549.txt
+- 5.5K Jun  4 01:48 marked_dup_metrics_DCL_047_E200015233_L01_71_424551.txt
+- 5.7K Jun  8 23:09 marked_dup_metrics_DCL_048_E200015233_L01_72_424552.txt
+- 4.9K Jun  4 09:07 marked_dup_metrics_DCL_055_E200015233_L01_73_424554.txt
+- 7.6K Jun  4 13:22 marked_dup_metrics_DCL_058_E200015233_L01_74_424555.txt
 
-Para esto se generó un script en python denominado evaluated_duplicate.py que permite combinar las diferentes metricas de los archivos .txt. Este genera un archivo .csv denominado consolidated_duplication_metrics.csv y realizar analisis posteriores como: 
 
-**Promedio y Desviación Estándar** del PERCENT_DUPLICATION para ver la duplicación media entre todas las muestras.
-**Gráficos de Barras o Boxplots** para comparar las métricas de duplicación y el tamaño de la biblioteca entre muestras.
-**Análisis de Correlación** para ver si existe alguna relación entre el tamaño de la biblioteca y el porcentaje de duplicación.
+Para combinar y analizar estas métricas, se creó el script en Python [`evaluated_duplicate.py`](evaluated_duplicate.py), que consolida los diferentes archivos `.txt` en un archivo `.csv` llamado `consolidated_duplication_metrics.csv`, facilitando el análisis de calidad de las muestras. Este archivo permite realizar análisis como:
+
+- **Promedio y Desviación Estándar** del `PERCENT_DUPLICATION` para evaluar la duplicación media entre todas las muestras.
+- **Gráficos de Barras o Boxplots** para comparar las métricas de duplicación y el tamaño de la biblioteca entre muestras.
+- **Análisis de Correlación** para ver si existe alguna relación entre el tamaño de la biblioteca y el porcentaje de duplicación.
+
 
 ## Sección 3.4: Recalibración del archivo BAM
 
