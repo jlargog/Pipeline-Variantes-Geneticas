@@ -8,6 +8,21 @@ Los Read Groups son fundamentales para la identificación y marcaje de duplicado
 
 Para mayor información dirijase a: [Read groups GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360035890671-Read-groups)
 
+### Nota:
+
+La tecnología MGI utiliza un encabezado un poco diferente al que se conoce comúnmente con Illumina:
+
+@<Flowcell-id><LaneNo><Column><Row><FieldofView></readNumber>
+
+Esta respuesta fue dada por el usuario [GenoMax](https://www.seqanswers.com/forum/sequencing-technologies-companies/mgiseq-fka-complete-genomics/326115-g400-fastq-header-description).
+
+Por ejemplo, para nuestro archivo `DCL006_E200021112_L01_1_436080_1.fastq`, uno de sus encabezados es: `@E200021112L1C001R00100000007/1`.
+
+Se debe recordar que en nuestro caso se realizó una secuenciación de extremos emparejados (Paired-end) y por lo tanto, los encabezados del otro archivo terminan en /2.
+
+Con respecto a la información que se requiere para la asignación de grupos de lectura, y como esta no podría ser análoga al formato tradicional, se establecen los parámetros que se utilizan a continuación.
+
+
 ### Automatización del Proceso
 Se ha desarrollado un script en Python, denominado [`read_group.py`](read_group.py), con el objetivo de automatizar la adición de Read Groups a los archivos `BAM`. Este script simplifica el proceso y asegura que todos los archivos estén correctamente etiquetados, facilitando así un análisis más eficiente y preciso. Esta versión proporciona una estructura más técnica y clara, destacando la importancia de los Read Groups y la automatización del proceso.
 
