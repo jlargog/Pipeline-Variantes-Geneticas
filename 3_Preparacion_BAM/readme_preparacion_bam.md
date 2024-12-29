@@ -112,16 +112,9 @@ Este script realiza los siguientes pasos para cada archivo BAM en el directorio 
 4. Muestra un mensaje de progreso al completar cada archivo BAM.
 
 #### Paso 2: Aplicación de VQSR
-En este paso, se utilizó el script [`recalibrate_part2.py`](recalibrate_part2.py) en Python para ejecutar el comando `BaseRecalibrator` de GATK, el cual genera un archivo de recalibración para cada muestra en el directorio de salida. Este archivo de recalibración contiene las estadísticas necesarias para ajustar las calidades de base.
+En este paso, se utilizó el script [`recalibrate_part2.py`](recalibrate_part2.py) ApplyBQSR es utilizada para aplicar recalibración de calidad de bases (Base Quality Score Recalibration, BQSR) a archivos BAM. Este proceso ajusta las calidades de las bases nucleotídicas en las lecturas secuenciadas para corregir posibles errores sistemáticos introducidos por la máquina de secuenciación.
 
-Este script realiza los siguientes pasos para cada archivo BAM en el directorio de entrada:
-
-1. Extrae el nombre de la muestra del archivo BAM y genera un archivo de salida de recalibración (`.table`) en el directorio de salida.
-2. Ejecuta el comando `BaseRecalibrator` de GATK, utilizando:
-   - **20 GB de memoria** y **40 hilos** para optimizar el rendimiento.
-   - Un archivo de **referencia genómica** y **sitios conocidos** de variantes como entradas necesarias.
-3. Captura y escribe la salida y los errores en un archivo `nohup.out` para registro y depuración.
-4. Muestra un mensaje de progreso al completar cada archivo BAM.
+La herramienta utiliza como entrada un archivo BAM (archivo de alineación de lecturas contra un genoma de referencia) y una tabla de recalibración previamente generada (los archivos .table generados con el script anterior).
 
 
 
