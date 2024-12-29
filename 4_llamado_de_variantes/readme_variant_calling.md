@@ -31,13 +31,12 @@ Se ejeucto un [`comando`](comandoCombineGVCFs.txt) que utiliza **GATK CombineGVC
 
 Se realizó el genotipado del archivo combinado `cohort.g.vcf.gz` mediante **GATK GenotypeGVCFs**, generando el archivo `output.vcf.gz`, que contiene las variantes genotipadas:
 
-```bash
+```
 nohup /datos/home/johanlargo/aplicaciones/anaconda3/envs/gwas/bin/gatk --java-options "-Xmx40g -Dtica.numberOfThreads=40" GenotypeGVCFs \
     -R /datos/home/johanlargo/proyectos/20240509-dcl/gatk_resources/reference_genome/Homo_sapiens_assembly38.fasta \
     -V /datos/home/johanlargo/proyectos/20240509-dcl/2_vcf_files/1_only_vcf/cohort.g.vcf.gz \
-    -O /datos/home/johanlargo/proyectos/20240509-dcl/2_vcf_files/3_combine_all_vcf/output.vcf.gz &```
-```bash
-
+    -O /datos/home/johanlargo/proyectos/20240509-dcl/2_vcf_files/3_combine_all_vcf/output.vcf.gz &
+```
 
 Posteriormente, se llevó a cabo el recalibrado de variantes en dos pasos:
 
