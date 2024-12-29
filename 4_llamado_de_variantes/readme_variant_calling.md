@@ -73,12 +73,13 @@ El comando ejecuta **GATK VariantRecalibrator**, una herramienta que construye u
 
 
 
-```bash
+```
 nohup /datos/home/johanlargo/aplicaciones/anaconda3/envs/gwas/bin/gatk --java-options "-Xmx40g -Dtica.numberOfThreads=40" VariantRecalibrator -V /datos/home/johanlargo/proyectos/20240509-dcl/2_vcf_files/3_combine_all_vcf/output.vcf.gz --trust-all-polymorphic -mode SNP --max-gaussians 6 --resource hapmap,known=false,training=true,truth=true,prior=15:/datos/home/johanlargo/proyectos/20240509-dcl/gatk_resources/hapmap_3.3.hg38.vcf.gz --resource omni,known=false,training=true,truth=true,prior=12:/datos/home/johanlargo/proyectos/20240509-dcl/gatk_resources/1000G_omni2.5.hg38.vcf.gz --resource 1000G,known=false,training=true,truth=false,prior=10:/datos/home/johanlargo/proyectos/20240509-dcl/gatk_resources/1000G_phase1.snps.high_confidence.hg38.vcf.gz --resource dbsnp,known=true,training=false,truth=false,prior=7:/datos/home/johanlargo/proyectos/20240509-dcl/gatk_resources/Homo_sapiens_assembly38.dbsnp138.vcf -an QD -an MQRankSum -an ReadPosRankSum -an FS -an MQ -an SOR -an DP -O /datos/home/johanlargo/proyectos/20240509-dcl/2_vcf_files/3_combine_all_vcf/cohort_snps.recal --tranches-file /datos/home/johanlargo/proyectos/20240509-dcl/2_vcf_files/3_combine_all_vcf/cohort_snps.tranches &
+```
 
 2. **ApplyVQSR**: Filtró variantes según el modelo, obteniendo como salida el archivo filtrado `cohort_snps_filtered.vcf.gz`.
 
-```bash
+```
 nohup /datos/home/johanlargo/aplicaciones/anaconda3/envs/gwas/bin/gatk --java-options "-Xmx40g -Dtica.numberOfThreads=40" ApplyVQSR \
     -R /datos/home/johanlargo/proyectos/20240509-dcl/gatk_resources/reference_genome/Homo_sapiens_assembly38.fasta \
     -V /datos/home/johanlargo/proyectos/20240509-dcl/2_vcf_files/3_combine_all_vcf/output.vcf.gz \
@@ -87,6 +88,7 @@ nohup /datos/home/johanlargo/aplicaciones/anaconda3/envs/gwas/bin/gatk --java-op
     --tranches-file /datos/home/johanlargo/proyectos/20240509-dcl/2_vcf_files/3_combine_all_vcf/cohort_snps.tranches \
     --recal-file /datos/home/johanlargo/proyectos/20240509-dcl/2_vcf_files/3_combine_all_vcf/cohort_snps.recal \
     -mode SNP &
+```
 
 ## Filtrado de variantes
 
