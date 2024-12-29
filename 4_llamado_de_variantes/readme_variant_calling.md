@@ -1,8 +1,8 @@
-# Generación de un archivo VCF de alta calidad
+# 4 Generación de un archivo VCF de alta calidad
 
 El objetivo de este capítulo es la generación de un archivo VCF que cumpla con las condiciones de calidad necesarias para realizar análisis como **GWAS (Genome-Wide Association Studies)**, análisis de ancestría y comparación de SNPs entre casos y controles. Para lograrlo, se han desarrollado y ejecutado las siguientes secciones:
 
-## Llamado de variantes
+## 4.1 Llamado de variantes
 
 Se diseñó un script denominado [`run_gatk_haplotypecaller.py`](run_gatk_haplotypecaller.py), que automatiza el proceso de llamado de variantes (*variant calling*) a partir de archivos BAM utilizando la herramienta **GATK HaplotypeCaller**. Este análisis es esencial en estudios genómicos para identificar variantes genéticas, como SNPs e indels, a partir de lecturas alineadas.
 
@@ -19,7 +19,7 @@ Se diseñó un script denominado [`run_gatk_haplotypecaller.py`](run_gatk_haplot
 
 Además, se creó el script [`generate_vcf_stats.sh`](generate_vcf_stats.sh), que permite generar un resumen de las estadísticas de cada archivo VCF.
 
-## Combinación de múltiples VCF en uno solo
+## 4.2 Combinación de múltiples VCF en uno solo
 
 Se ejeucto un [`comando`](comandoCombineGVCFs.txt) que utiliza **GATK CombineGVCFs** para combinar múltiples archivos VCF comprimidos (`.vcf.gz`) en un único archivo denominado `cohort.g.vcf.gz`. Este paso permite consolidar todas las variantes detectadas en diferentes muestras para su análisis conjunto posterior, como el llamado de variantes en cohortes.
 
@@ -27,7 +27,7 @@ Se ejeucto un [`comando`](comandoCombineGVCFs.txt) que utiliza **GATK CombineGVC
 - Se asignaron 100 GB de memoria y 40 hilos para optimizar el rendimiento.
 - Se ejecutó el proceso en segundo plano con `nohup`.
 
-## Genotipado del archivo combinado
+## 4.3 Genotipado del archivo combinado
 
 Se realizó el genotipado del archivo combinado `cohort.g.vcf.gz` mediante **GATK GenotypeGVCFs**, generando el archivo `output.vcf.gz`, que contiene las variantes genotipadas:
 
@@ -90,7 +90,7 @@ nohup /datos/home/johanlargo/aplicaciones/anaconda3/envs/gwas/bin/gatk --java-op
     -mode SNP &
 ```
 
-## Filtrado de variantes
+## 4.4 Filtrado de variantes
 El comando ejecuta GATK VariantFiltration para filtrar variantes en un archivo VCF (cohort_snps_filtered.vcf.gz) basado en criterios de calidad específicos. A continuación, desgloso cada opción y explico su propósito en el análisis:
 ```
 nohup /datos/home/johanlargo/aplicaciones/anaconda3/envs/gwas/bin/gatk --java-options "-Xmx40g -Dtica.numberOfThreads=40" VariantFiltration \
