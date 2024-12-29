@@ -37,6 +37,7 @@ nohup /datos/home/johanlargo/aplicaciones/anaconda3/envs/gwas/bin/gatk --java-op
     -V /datos/home/johanlargo/proyectos/20240509-dcl/2_vcf_files/1_only_vcf/cohort.g.vcf.gz \
     -O /datos/home/johanlargo/proyectos/20240509-dcl/2_vcf_files/3_combine_all_vcf/output.vcf.gz &```
 
+---
 
 Posteriormente, se llevó a cabo el recalibrado de variantes en dos pasos:
 
