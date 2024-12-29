@@ -4,7 +4,7 @@ El objetivo de este capítulo es la generación de un archivo VCF que cumpla con
 
 ## Llamado de variantes
 
-Se diseñó un script denominado `run_gatk_haplotypecaller.py`, que automatiza el proceso de llamado de variantes (*variant calling*) a partir de archivos BAM utilizando la herramienta **GATK HaplotypeCaller**. Este análisis es esencial en estudios genómicos para identificar variantes genéticas, como SNPs e indels, a partir de lecturas alineadas.
+Se diseñó un script denominado [`run_gatk_haplotypecaller.py`](run_gatk_haplotypecaller.py), que automatiza el proceso de llamado de variantes (*variant calling*) a partir de archivos BAM utilizando la herramienta **GATK HaplotypeCaller**. Este análisis es esencial en estudios genómicos para identificar variantes genéticas, como SNPs e indels, a partir de lecturas alineadas.
 
 ### Funcionalidades principales del script:
 - Ejecuta **GATK HaplotypeCaller** para procesar cada archivo BAM.
@@ -17,11 +17,11 @@ Se diseñó un script denominado `run_gatk_haplotypecaller.py`, que automatiza e
 - Escalable, eficiente y adaptable para grandes volúmenes de datos.
 - Genera salidas en formato estándar (`.vcf.gz`) compatibles con análisis posteriores.
 
-Además, se creó el script `generate_vcf_stats.sh`, que permite generar un resumen de las estadísticas de cada archivo VCF.
+Además, se creó el script [`generate_vcf_stats.sh`](generate_vcf_stats.sh), que permite generar un resumen de las estadísticas de cada archivo VCF.
 
 ## Combinación de múltiples VCF en uno solo
 
-El script utiliza **GATK CombineGVCFs** para combinar múltiples archivos VCF comprimidos (`.vcf.gz`) en un único archivo denominado `cohort.g.vcf.gz`. Este paso permite consolidar todas las variantes detectadas en diferentes muestras para su análisis conjunto posterior, como el llamado de variantes en cohortes.
+Se ejeucto un [`comando`](combinarGVCFs.txt) que utiliza **GATK CombineGVCFs** para combinar múltiples archivos VCF comprimidos (`.vcf.gz`) en un único archivo denominado `cohort.g.vcf.gz`. Este paso permite consolidar todas las variantes detectadas en diferentes muestras para su análisis conjunto posterior, como el llamado de variantes en cohortes.
 
 - Se utilizó el genoma de referencia `Homo_sapiens_assembly38.fasta`.
 - Se asignaron 100 GB de memoria y 40 hilos para optimizar el rendimiento.
