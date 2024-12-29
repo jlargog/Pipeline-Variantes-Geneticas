@@ -111,6 +111,29 @@ Este script realiza los siguientes pasos para cada archivo BAM en el directorio 
 3. Captura y escribe la salida y los errores en un archivo `nohup.out` para registro y depuración.
 4. Muestra un mensaje de progreso al completar cada archivo BAM.
 
+Esto gebneró una tabla para cada uno de los casos:
+
+966K DCL_003_E200015275_L01_41_424524.table
+966K DCL_005_E200015275_L01_42_424525.table
+966K DCL_008_E200015275_L01_43_424527.table
+966K DCL_009_E200015275_L01_44_424528.table
+966K DCL_012_E200015275_L01_45_424530.table
+966K DCL_014_E200015275_L01_46_424531.table
+966K DCL_015_E200015275_L01_47_424532.table
+966K DCL_016_E200015275_L01_48_424533.table
+966K DCL_020_E200015275_L01_57_424535.table
+966K DCL_021_E200015275_L01_58_424536.table
+966K DCL_023_E200015233_L01_65_424537.table
+967K DCL_024_E200015233_L01_66_424538.table
+966K DCL_026_E200015233_L01_67_424540.table
+966K DCL_027_E200015233_L01_68_424541.table
+966K DCL_042_E200015233_L01_69_424548.table
+966K DCL_044_E200015233_L01_70_424549.table
+966K DCL_047_E200015233_L01_71_424551.table
+966K DCL_048_E200015233_L01_72_424552.table
+966K DCL_055_E200015233_L01_73_424554.table
+974K DCL_058_E200015233_L01_74_424555.table
+
 #### Paso 2: Aplicación de VQSR
 En este paso, se utilizó el script [`recalibrate_part2.py`](recalibrate_part2.py) ApplyBQSR es utilizada para aplicar recalibración de calidad de bases (Base Quality Score Recalibration, BQSR) a archivos BAM. Este proceso ajusta las calidades de las bases nucleotídicas en las lecturas secuenciadas para corregir posibles errores sistemáticos introducidos por la máquina de secuenciación.
 
