@@ -139,6 +139,8 @@ En este paso, se utilizó el script [`recalibrate_part2.py`](recalibrate_part2.p
 
 La herramienta utiliza como entrada un archivo BAM (archivo de alineación de lecturas contra un genoma de referencia) y una tabla de recalibración previamente generada (los archivos .table generados con el script anterior).
 
+En este momento se obtienen los archivos BAM calibrados y listos para realizar el llamado de variantes.
+
 
 
 
