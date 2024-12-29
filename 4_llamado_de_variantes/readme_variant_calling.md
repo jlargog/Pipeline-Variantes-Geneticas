@@ -1,0 +1,1 @@
+Este script automatiza el proceso de llamado de variantes (variant calling) a partir de archivos BAM utilizando la herramienta GATK HaplotypeCaller. Este análisis es un paso clave en estudios genómicos para identificar variantes genéticas (como SNPs o indels) a partir de lecturas alineadas.
