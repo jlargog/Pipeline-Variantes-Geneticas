@@ -91,11 +91,66 @@ nohup /datos/home/johanlargo/aplicaciones/anaconda3/envs/gwas/bin/gatk --java-op
 ```
 
 ## Filtrado de variantes
+El comando ejecuta GATK VariantFiltration para filtrar variantes en un archivo VCF (cohort_snps_filtered.vcf.gz) basado en criterios de calidad específicos. A continuación, desgloso cada opción y explico su propósito en el análisis:
+```
+nohup /datos/home/johanlargo/aplicaciones/anaconda3/envs/gwas/bin/gatk --java-options "-Xmx40g -Dtica.numberOfThreads=40" VariantFiltration \
+    -R /datos/home/johanlargo/proyectos/20240509-dcl/gatk_resources/reference_genome/Homo_sapiens_assembly38.fasta \
+    -V /datos/home/johanlargo/proyectos/20240509-dcl/2_vcf_files/3_combine_all_vcf/cohort_snps_filtered.vcf.gz \
+    -O /datos/home/johanlargo/proyectos/20240509-dcl/2_vcf_files/3_combine_all_vcf/cohort.vqsr.varfilter.vcf.gz \
+    --filter-name "LowDP" --filter-expression "DP < 10" \
+    --filter-name "LowMQ" --filter-expression "MQ < 40.0" \
+    --filter-name "LowQUAL" --filter-expression "QUAL < 30.0" \
+    --filter-name "HighSOR" --filter-expression "SOR > 3.0" \
+    --filter-name "HighFS" --filter-expression "FS > 60.0" \
+    --filter-name "LowMQRankSum" --filter-expression "MQRankSum < -12.5" \
+    --filter-name "LowReadPosRankSum" --filter-expression "ReadPosRankSum < -8.0" &
+```
+### Criterios de filtrado (`--filter-name` y `--filter-expression`)
 
-Se realizó el filtrado de variantes en el archivo recalibrado `cohort_snps_filtered.vcf.gz` utilizando **GATK VariantFiltration**, aplicando umbrales específicos de calidad, como:
-- **Profundidad de lectura (DP)**: Variantes con DP < 10 se marcaron como de baja calidad.
-- **Calidad de mapeo (MQ)**: Variantes con MQ < 40.0 se filtraron.
-- **Otras métricas**: SOR > 3.0, FS > 60.0, MQRankSum < -12.5 y ReadPosRankSum < -8.0.
+Para cada criterio, se define un nombre (`--filter-name`) que será usado para marcar las variantes que no cumplan con la expresión lógica especificada (`--filter-expression`). Estos criterios se basan en métricas clave para evaluar la calidad de las variantes:
 
-Las variantes que pasaron los filtros se extrajeron con **bcftools** y se guardaron en el archivo `cohort_final_filtered.vqsr.varfilter.pass.vcf`. Este archivo fue comprimido con **bgzip** y se generó un índice con **bcftools index**, obteniendo el archivo final comprimido e indexado `cohort_final_filtered.vqsr.varfilter.pass.vcf.gz`, listo para su uso en análisis posteriores.
+- **`--filter-name "LowDP"` y `--filter-expression "DP < 10"`**:
+  - **DP (Depth of Coverage):** Representa la profundidad de lectura en la posición de la variante.
+  - **Razonamiento:** Una cobertura baja (<10) indica poca confianza en la variante, ya que puede ser un artefacto o ruido.
+
+- **`--filter-name "LowMQ"` y `--filter-expression "MQ < 40.0"`**:
+  - **MQ (Mapping Quality):** Mide qué tan bien se alinean las lecturas en la variante.
+  - **Razonamiento:** Un valor bajo (<40) sugiere que las lecturas no están bien alineadas y podrían ser erróneas.
+
+- **`--filter-name "LowQUAL"` y `--filter-expression "QUAL < 30.0"`**:
+  - **QUAL:** Representa la calidad de la llamada de la variante, calculada estadísticamente.
+  - **Razonamiento:** Variantes con una calidad baja (<30) tienen alta probabilidad de ser falsos positivos.
+
+- **`--filter-name "HighSOR"` y `--filter-expression "SOR > 3.0"`**:
+  - **SOR (Strand Odds Ratio):** Evalúa sesgos en las cadenas de lectura (positiva y negativa).
+  - **Razonamiento:** Un valor alto (>3.0) indica que las variantes aparecen principalmente en una cadena, lo que puede ser un artefacto.
+
+- **`--filter-name "HighFS"` y `--filter-expression "FS > 60.0"`**:
+  - **FS (Fisher Strand Test):** Detecta sesgos en la distribución de lecturas en las cadenas.
+  - **Razonamiento:** Un valor alto (>60) señala que las variantes no están distribuidas uniformemente, lo cual podría ser un artefacto técnico.
+
+- **`--filter-name "LowMQRankSum"` y `--filter-expression "MQRankSum < -12.5"`**:
+  - **MQRankSum:** Compara la calidad de mapeo de lecturas de referencia y variantes.
+  - **Razonamiento:** Un valor bajo (<-12.5) indica que las variantes podrían estar sesgadas en calidad de mapeo, lo que afecta la confianza en su validez.
+
+- **`--filter-name "LowReadPosRankSum"` y `--filter-expression "ReadPosRankSum < -8.0"`**:
+  - **ReadPosRankSum:** Evalúa si las variantes están posicionadas de manera uniforme dentro de las lecturas.
+  - **Razonamiento:** Un valor bajo (<-8.0) sugiere que las variantes tienden a aparecer en posiciones específicas dentro de las lecturas, lo que puede indicar artefactos.
+
+
+Las variantes que pasaron los filtros se extrajeron con **bcftools** y se guardaron en el archivo `cohort_final_filtered.vqsr.varfilter.pass.vcf`.
+```
+bcftools view -f 'PASS,.' -O vcf -o cohort_final_filtered.vqsr.varfilter.pass.vcf cohort.vqsr.varfilter.vcf.gz
+```
+
+Este archivo fue comprimido con **bgzip** 
+```
+bgzip cohort_final_filtered.vqsr.varfilter.pass.vcf
+```
+y se generó un índice con **bcftools index**
+```
+bcftools index cohort_final_filtered.vqsr.varfilter.pass.vcf.gz
+```
+
+Obteniendo el archivo final comprimido e indexado `cohort_final_filtered.vqsr.varfilter.pass.vcf.gz`, listo para su uso en análisis posteriores.
 
