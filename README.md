@@ -15,7 +15,7 @@ Reviewed: June 2023
 
 [Capítulo 3: Preparación del archivo BAM](/3_Preparacion_BAM/readme_preparacion_bam.md)
 
-[Capítulo 4: Llamado de variantes](/3_Preparacion_BAM/readme_preparacion_bam.md)
+[Capítulo 4: Llamado de variantes](/4_llamado_de_variantes/readme_variant_calling.md)
 
 
 
