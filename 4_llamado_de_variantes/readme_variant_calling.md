@@ -154,3 +154,33 @@ bcftools index cohort_final_filtered.vqsr.varfilter.pass.vcf.gz
 
 Obteniendo el archivo final comprimido e indexado `cohort_final_filtered.vqsr.varfilter.pass.vcf.gz`, listo para su uso en análisis posteriores.
 
+### Resumen del archivo generado
+con el comando se realizó una visualización inicial del numero total de variantes encontradas:
+```
+bcftools stats  cohort_final_filtered.vqsr.varfilter.pass.vcf
+```
+### Resumen de estadísticas del archivo VCF (`cohort_final_filtered.vqsr.varfilter.pass.vcf`)
+
+#### Muestras y registros:
+- **Número de muestras**: 20
+- **Número total de registros**: 12,834,257
+- **Número de sitios sin variantes (no-ALTs)**: 0
+
+#### Tipos de variantes:
+- **SNPs**: 10,590,680
+- **Indels**: 2,313,544
+- **Otros**: 43,868 (variantes complejas o simbólicas)
+- **Sitios multialélicos**: 720,689
+- **Sitios multialélicos de SNPs**: 23,443
+
+#### Transiciones/Transversiones (Ts/Tv):
+- **Número de transiciones (Ts)**: 7,175,615
+- **Número de transversiones (Tv)**: 3,435,465
+- **Ratio Ts/Tv**: 2.09
+
+#### Singletons (variantes únicas):
+- **Número de SNPs singleton**: 3,510,011
+- **Transiciones**: 2,384,943
+- **Transversiones**: 1,125,068
+- **Indels**: 708,127
+
