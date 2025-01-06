@@ -76,6 +76,14 @@ DCL_055 DCL_055 0 0 2 2
 DCL_058 DCL_058 0 0 2 2
 ```
 
+### Filtro pre GWAS
 
+Se decide aplicar filtros a cohort_filtered_update
+
+Eliminar SNPs y muestras con alto nivel de falta de datos:
+  plink --bfile cohort_filtered_update --geno 0.05 --mind 0.1 --make-bed --out filtered_data --allow-extra-chr
+
+Filtrar por frecuencia alélica menor (MAF):
+  plink --bfile filtered_data --maf 0.05 --make-bed --out filtered_data_maf --allow-extra-chr
 
 
