@@ -9,14 +9,12 @@ Para mejorar la eficiencia en el acceso a los archivos, se realiza la indexació
 
 ```bash
 bcftools index Homo_sapiens_assembly38.dbsnp138.vcf.gz
-bcftools index 45_DCL_all_chromosomes.snps.pass.vcf.gz
+bcftools index 45_DCL_all_chromosomes.snps.pass.vcf.gz```
 
-2. Anotación de variantes con dbSNP
+### 2. Anotación de variantes con dbSNP
 Se agrega la información del identificador de variantes (ID) desde la base de datos dbSNP al archivo de variantes de interés:
 
 bash
-Copy
-Edit
 bcftools annotate -a ../../2_vcf_files/3_combine_all_vcf/Homo_sapiens_assembly38.dbsnp138.vcf.gz -c ID 45_DCL_all_chromosomes.snps.pass.vcf.gz -O z -o updated_45_snps.vcf.gz
 3. Conversión a formato PLINK
 Se convierte el archivo VCF anotado a formato PLINK (archivos .bed, .bim, .fam):
